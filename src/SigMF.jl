@@ -1,5 +1,6 @@
 module SigMF
 
-# Write your package code here.
+using JSON3
+
 
 end
