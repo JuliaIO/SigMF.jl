@@ -1,6 +1,10 @@
 using SigMF
 using Test
+using JSON3
 
 @testset "SigMF.jl" begin
-    # Write your tests here.
+    f = open("logo/sigmf_logo.sigmf-meta") do f
+        JSON3.read(f, SigMFFile)
+    end
+    @show f
 end
