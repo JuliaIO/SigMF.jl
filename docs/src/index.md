@@ -4,7 +4,7 @@ CurrentModule = SigMF
 
 # SigMF
 
-Documentation for [SigMF](https://github.com/sjkelly/SigMF.jl).
+Documentation for [SigMF](https://github.com/juliaIO/SigMF.jl).
 
 ```@index
 ```
