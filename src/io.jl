@@ -9,7 +9,7 @@ attempt to correct the extensions to load both.
 
 Returns a `SigMFFile`.
 """
-function load(f; mmap=true, integrity_check=true)
+function load(f; mmap=true, integrity_check=false)
 
     exists = isfile(f)
     if !exists
@@ -40,4 +40,24 @@ function load(f; mmap=true, integrity_check=true)
     integrity_check && sha512(dataio) != meta.meta_global.sha512 && error("SigMF data integrity check failed")
 
     SigMFFile(meta, reinterpret(datatype, data))
+end
+
+
+"""
+    SigMF.save(f, ::SigMFFile; compress=false)
+"""
+function save(f, sigmf::SigMFFile; compress=false)
+    name, ext = splitext(basename(f))
+
+    #dir = mkdir(f)
+    datafile = joinpath(f, dir)
+    metafile = joinpath(f, dir)
+
+end
+
+
+function save(f, sigmf::SigMFMeta)
+    open(f, "w") do f
+        JSON3.write(f, sigmf)
+    end
 end

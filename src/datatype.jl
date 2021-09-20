@@ -42,7 +42,7 @@ function datatype_sigmf2julia(s::String)
     e = findnext('_', s, 1)
     isnothing(e) && throw(SigMFDataTypeError(s))
 
-    # 'real' seems to be optional, so check if specified
+    # 'real' seems to be default if unspecified
     repr_start = s[1] in ('r', 'c') ? 2 :  s[1] in ('f', 'i', 'u') ? 1 : throw(SigMFDataTypeError(s))
 
     numeric_repr = s[repr_start:e-1]
