@@ -15,6 +15,8 @@ makedocs(;
     ),
     pages=[
         "Home" => "index.md",
+        "Base Spec" => "sigmf-spec.md",
+        "Signal Extension" => "signal.sigmf-ext.md",
     ],
 )
 

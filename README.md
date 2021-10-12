@@ -11,7 +11,7 @@ This is a Julia package for working with metadata and storage associated with si
 The official spec may be found here: https://github.com/gnuradio/SigMF
 
 The documentation serves as the "as-built" specification for the package, and the format is
-pre-1.0 so 
+pre-1.0 so we have reproduced the specifications used to develop the package.
 
 ## Quickstart
 
