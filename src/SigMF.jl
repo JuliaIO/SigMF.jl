@@ -3,7 +3,6 @@ module SigMF
 using JSON3
 using Tar
 using SHA
-using GeoJSON
 using StructTypes
 using Dates
 using Mmap
