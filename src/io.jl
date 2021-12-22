@@ -47,12 +47,13 @@ end
     SigMF.save(f, ::SigMFFile; compress=false)
 """
 function save(f, sigmf::SigMFFile; compress=false)
-    name, ext = splitext(basename(f))
+    # write meta
+    save(f*"-meta", sigmf.meta)
 
-    #dir = mkdir(f)
-    datafile = joinpath(f, dir)
-    metafile = joinpath(f, dir)
-
+    # write data
+    open(f*"-data", "w") do io
+        write(io, sigmf.data)
+    end
 end
 
 
