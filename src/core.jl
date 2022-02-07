@@ -66,21 +66,25 @@ end
 StructTypes.StructType(::Type{SigMFGlobal}) = StructTypes.Struct()
 
 function StructTypes.names(::Type{SigMFGlobal})
-    ((:datatype,     Symbol("core:datatype")),
-     (:sample_rate,  Symbol("core:sample_rate")),
-     (:version,      Symbol("core:version")),
-     (:num_channels, Symbol("core:num_channels")),
-     (:sha512,       Symbol("core:sha512")),
-     (:offset,       Symbol("core:offset")),
-     (:description,  Symbol("core:description")),
-     (:author,       Symbol("core:author")),
-     (:meta_doi,     Symbol("core:meta_doi")),
-     (:data_doi,     Symbol("core:data_doi")),
-     (:recorder,     Symbol("core:recorder")),
-     (:license,      Symbol("core:license")),
-     (:hw,           Symbol("core:hw")),
-     (:hagl,         Symbol("core:hagl")),
-     (:extensions,   Symbol("core:extensions")))
+    ((:datatype,        Symbol("core:datatype")),
+     (:sample_rate,     Symbol("core:sample_rate")),
+     (:version,         Symbol("core:version")),
+     (:num_channels,    Symbol("core:num_channels")),
+     (:sha512,          Symbol("core:sha512")),
+     (:offset,          Symbol("core:offset")),
+     (:description,     Symbol("core:description")),
+     (:author,          Symbol("core:author")),
+     (:meta_doi,        Symbol("core:meta_doi")),
+     (:data_doi,        Symbol("core:data_doi")),
+     (:recorder,        Symbol("core:recorder")),
+     (:license,         Symbol("core:license")),
+     (:hw,              Symbol("core:hw")),
+     (:dataset,         Symbol("core:dataset")),
+     (:trailing_bytes,  Symbol("core:trailing_bytes")),
+     (:metadata_only,   Symbol("core:metadata_only")),
+     (:geolocation,     Symbol("core:geolocation")),
+     (:extensions,      Symbol("core:extensions")),
+     (:collection,      Symbol("core:collection")))
 end
 
 StructTypes.StructType(::Type{SigMFCaptures}) = StructTypes.Struct()
