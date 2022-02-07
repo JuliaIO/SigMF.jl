@@ -1,7 +1,7 @@
 Base.@kwdef struct SigMFGlobal
     datatype::String = "i"
     sample_rate::Union{Float64, Nothing} = nothing
-    version::VersionNumber = _sigmf_default_version
+    version::String = _sigmf_default_version
     num_channels::Union{UInt, Nothing} = nothing
     sha512::Union{String, Nothing} = nothing
     offset::Union{UInt, Nothing} = nothing
@@ -12,13 +12,18 @@ Base.@kwdef struct SigMFGlobal
     recorder::Union{String, Nothing} = nothing
     license::Union{String, Nothing} = nothing
     hw::Union{String, Nothing} = nothing
-    hagl::Union{Float64, Nothing} = nothing
+    dataset::Union{String, Nothing} = nothing
+    trailing_bytes::Union{String, Nothing} = nothing
+    metadata_only::Union{Bool, Nothing} = nothing
+    geolocation::Union{String, Nothing} = nothing # TODO: GEOJSON
     extensions::Union{Dict{String,String}, Nothing} = nothing
+    collection::Union{String, Nothing} = nothing
 end
 
 Base.@kwdef struct SigMFCaptures
     sample_start::UInt = 0
     global_index::Union{UInt, Nothing} = nothing
+    header_bytes::Union{UInt, Nothing} = nothing
     frequency::Union{Float64, Nothing} = nothing
     datetime::Union{String, Nothing} = nothing
 end
@@ -39,6 +44,16 @@ Base.@kwdef struct SigMFMeta
     meta_global::SigMFGlobal = SigMFGlobal()
     meta_captures::Vector{SigMFCaptures} = SigMFCaptures[]
     meta_annotations::Vector{SigMFAnnotations} = SigMFAnnotations[]
+end
+
+Base.@kwdef struct SigMFCollection
+    version::String = _sigmf_default_version
+    description::Union{String, Nothing} = nothing
+    author::Union{String, Nothing} = nothing
+    collection_doi::Union{String, Nothing} = nothing
+    license::Union{String, Nothing} = nothing
+    extensions::Union{Dict{String,String}, Nothing} = nothing
+    streams::Vector{Dict{String,String}} = Dict{String,String}[]
 end
 
 struct SigMFFile{T}

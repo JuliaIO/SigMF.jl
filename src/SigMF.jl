@@ -7,7 +7,7 @@ using StructTypes
 using Dates
 using Mmap
 
-const _sigmf_default_version = v"0.0.2"
+const _sigmf_default_version = "0.0.2"
 
 include("errors.jl")
 include("datatype.jl")
