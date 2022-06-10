@@ -1,3 +1,22 @@
+"""
+The `core:extensions` field in the Global Object is an array of `extension objects`
+that describe SigMF extensions. Extension Objects MUST contain the three key/value 
+pairs defined below, and MUST NOT contain any other fields.
+
+| name       | required | type    | description                                                                 |
+| ---------- | -------- | ------- | --------------------------------------------------------------------------- |
+| `name`     | true     | string  | The name of the SigMF extension namespace.                                  |
+| `version`  | true     | string  | The version of the extension namespace specification used.                  |
+| `optional` | true     | boolean | If this field is `true`, the extension is REQUIRED to parse this Recording. |
+
+"""
+Base.@kwdef struct SigMFExtension
+    name::String = ""
+    version::String = ""
+    optional::Bool = false
+end
+
+
 Base.@kwdef struct SigMFGlobal
     datatype::String = "i"
     sample_rate::Union{Float64, Nothing} = nothing
@@ -16,9 +35,10 @@ Base.@kwdef struct SigMFGlobal
     trailing_bytes::Union{String, Nothing} = nothing
     metadata_only::Union{Bool, Nothing} = nothing
     geolocation::Union{String, Nothing} = nothing # TODO: GEOJSON
-    extensions::Union{Dict{String,String}, Nothing} = nothing
+    extensions::Union{Vector{SigMFExtension}, Nothing} = nothing
     collection::Union{String, Nothing} = nothing
 end
+
 
 Base.@kwdef struct SigMFCaptures
     sample_start::UInt = 0
