@@ -1,7 +1,7 @@
 name = "SigMF"
 uuid = "dc1af1da-aa00-46a0-b3ad-5cde4383c966"
 authors = ["Steve Kelly <kd2cca@gmail.com> and contributors"]
-version = "1.0.0"
+version = "0.2.0"
 
 [deps]
 Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
